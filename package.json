@@ -1,11 +1,10 @@
 {
-  "name": "queens",
-  "version": "1.0.0",
-  "description": "",
+  "name": "NQueens",
+  "version": "1.0.1",
+  "description": "N-Queens Counting Algorithms in Javascript",
   "main": "index.js",
   "dependencies": {
-    "immutable": "^3.8.1",
-    "lodash": "^4.13.1"
+    "immutable": "^3.8.1"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
