@@ -13,7 +13,7 @@ date: 10.07.2016
 * uses symetry
 * uses javascript array datastructure
 
-	* array map and filter are not as fastest as simple two for cycles
+	* array map and filter are not as fastest as two simple for cycles
     
 ### SimpleBacktracking
 * not using symetry
@@ -44,13 +44,13 @@ date: 10.07.2016
 | 13                    | 41274.144          | 11220.463       | 3535.549           | 86.476          | 44.587                       |
 | 14                    | 235994.302         | 60013.036       | 23078.019          | 505.164         | 232.241                      |
 | 15                    | 1506385.472        | 391141.19       | 145485.322         | 3136.496        | 1606.969                     |
-| 16                    |                    | 2474454.835     |                    | 28069.038       | 12367.12                     |
+| 16                    |                    | 2474454.835     | heap out of memory | 28069.038       | 12367.12                     |
 | 17                    |                    |                 |                    | 214466.428      | 94513.589                    |
 
 time in [ms] running on MacBook Pro mid 2014
 
 ![alt text][chart]
 
-[chart]: http://image.prntscr.com/image/adce892195424666a4039d14481c970d.png "N Queen Algorithms chart"
+[chart]: http://image.prntscr.com/image/9a6ca892dabe48c0a44dec1a0870deb9.png "N Queen Algorithms chart"
 
 
