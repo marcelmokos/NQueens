@@ -77,6 +77,10 @@ function Queen(width) {
   }
 }
 
+/**
+ * @param n
+ * @returns {Number}
+ */
 export const classBacktracking = (n) => {
   const instance = new Queen(n)
   instance.run()

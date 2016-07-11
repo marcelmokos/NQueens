@@ -4,6 +4,7 @@
  * Updated to ES6
  * Esling fix used
  *
+ * author: Joyce Liu
  * source: https://liujoycec.github.io/2015/09/20/n_queens_symmetry/
  */
 
@@ -11,7 +12,7 @@ import dec2bin from '../utility/dec2bin'
 
 /**
  * @param n
- * @returns {*[]}
+ * @returns {number}
  */
 const countNQueensBinarySolutionsUsingSymmetry = (n) => {
   // Symmetry will not work for N=1 and N=0 because
@@ -56,7 +57,7 @@ const countNQueensBinarySolutionsUsingSymmetry = (n) => {
 
     // console.log({ld, col, rd, ex1, ex2, poss})
     // console.log({
-    //   ld:dec2bin(ld),
+    //   ld: dec2bin(ld),
     //   col: dec2bin(col),
     //   rd: dec2bin(rd),
     //   ex1: dec2bin(ex1),

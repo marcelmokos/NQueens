@@ -1,6 +1,5 @@
 /**
  * Created by marcel on 10/07/2016.
- *
  */
 
 import Immutable from 'immutable'
