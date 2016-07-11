@@ -95,15 +95,21 @@ const countNQueensUsingJavascriptArray = (n) => {
   }
 
   /**
+   * Halved number of items in first row round down
    * Equivalent of Math.floor(n / 2)
    * @type {number}
    */
   const items = (n / 2) << 0
 
+  /**
+   * Given board
+   * When take half items of the first row
+   * Then process with symetry in mind and increment by value of two
+   */
   board
     .slice(0, items)
     .forEach(item => {
-      innerRecurse(0, board.slice(n - 1), [item])
+      innerRecurse(0, board.slice(n - 1), [item], 2)
     })
 
   /**
