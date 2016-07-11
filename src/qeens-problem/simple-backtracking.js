@@ -1,22 +1,20 @@
 /**
- * https://zolmeister.com/2014/01/n-queens-problem-backtracking.html
+ * Created by marcel on 10/07/2016.
  */
 
 /**
  * @param n
- * @returns {Array}
+ * @returns {number}
  */
 export const countQeensUsingSimpleBacktrackingES6 = (n) => {
-  const ans = []
-  let iterations = 0
+  let count = 0
 
   /**
    * @param current
    */
   const solver = (current) => {
-    iterations++
     if (current.length === n) {
-      ans.push(current)
+      count++
     } else {
       for (let i = 0; i < n; i++) {
         let j = 0
@@ -36,9 +34,16 @@ export const countQeensUsingSimpleBacktrackingES6 = (n) => {
 
   solver([])
 
-  return ans.length
+  return count
 }
 
+/**
+ * author: Zoli Kahan
+ * source: https://zolmeister.com/2014/01/n-queens-problem-backtracking.html
+ *
+ * @param n
+ * @returns {Number}
+ */
 export function countQeensUsingSimpleBacktrackingES5(n) {
   var ans = []
   solver([])
