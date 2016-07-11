@@ -1,7 +1,8 @@
 # N-Queens Counting Algorithms:
 [wikipedia](https://en.wikipedia.org/wiki/Eight_queens_puzzle) 
-
 date: 10.07.2016
+
+![alt text][chessboard]
 
 ### ImmutableUsingList
 * uses symetry 
@@ -52,5 +53,5 @@ time in [ms] running on MacBook Pro mid 2014
 ![alt text][chart]
 
 [chart]: http://image.prntscr.com/image/9a6ca892dabe48c0a44dec1a0870deb9.png "N Queen Algorithms chart"
-
+[chessboard]: https://media.giphy.com/media/26BRwNRvMw7r3WErm/giphy.gif "N Queen Algorithms gif"
 
