@@ -14,20 +14,21 @@ for (let i = 1; i < 13; i++) {
   const counts = []
   console.log('---')
 
-  Object.keys(algorithms).map((key) => {
-    console.time(`${key} [${i}]`)
+  Object.keys(algorithms).forEach((key) => {
+    const algorithmDescription = `${key} [${i}]`
+
+    console.time(algorithmDescription)
     const result = algorithms[key](i)
-    console.timeEnd(`${key} [${i}]`)
+    console.timeEnd(algorithmDescription)
 
     counts.push(result)
-    return
   })
 
   console.log(`results [${i}]:`, { counts })
 
   const count = counts.pop()
-  counts.map((item) => (
+  counts.forEach((item) => {
     console.assert(count === item, 'not same results')
-  ))
+  })
 }
 
