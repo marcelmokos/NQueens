@@ -35,6 +35,10 @@ rules:
   # http://eslint.org/docs/rules/quotes
   quotes: [error, double] # airbnb default: ['error', 'single', { avoidEscape: true }]
 
+  # enforce no padding inside curly braces
+  #http://eslint.org/docs/rules/object-curly-spacing
+  object-curly-spacing: [error, never]
+
   ### Variables ###
 
   # Functions and classes can be used before declaration
