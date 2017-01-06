@@ -8,27 +8,34 @@
  * Then how many combinations can queens be placed and not attacking each other
  */
 
-import algorithms from './qeens-problem'
+import algorithms from "./qeens-problem";
+
+require("console.table");
+
+const getMsFromHrtime = hrtime => `${(((hrtime[0] * 1e9) + hrtime[1]) / 1e6).toFixed(3)}ms`;
+const getElapsedTimeInMs = start => getMsFromHrtime(process.hrtime(start));
+
+const table = [];
 
 for (let i = 1; i < 11; i++) {
-  const counts = []
-  console.log('---')
+  const counts = [];
+  const preformance = [];
 
   Object.keys(algorithms).forEach((key) => {
-    const algorithmDescription = `${key} [${i}]`
+    const start = process.hrtime();
+    const result = algorithms[key](i);
+    const time = getElapsedTimeInMs(start);
 
-    console.time(algorithmDescription)
-    const result = algorithms[key](i)
-    console.timeEnd(algorithmDescription)
+    preformance.push(time);
+    counts.push(result);
+  });
 
-    counts.push(result)
-  })
-
-  console.log(`results [${i}]:`, { counts })
-
-  const count = counts.pop()
+  const count = counts.pop();
   counts.forEach((item) => {
-    console.assert(count === item, 'not same results')
-  })
+    console.assert(count === item, "not same results");
+  });
+  table.push([String(i), count, ...preformance]);
 }
 
+const header = ["Board", "n", ...Object.keys(algorithms)];
+console.table(header, table);

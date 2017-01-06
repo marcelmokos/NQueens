@@ -27,10 +27,6 @@ rules:
 
   ### Styling ###
 
-  # In this project I want to ommit semicolons
-  # http://eslint.org/docs/rules/semi
-  semi: [error, never]
-
   # I prefer new line before error
   # http://eslint.org/docs/rules/newline-before-return
   newline-before-return: error # airbnb default: off
@@ -63,6 +59,7 @@ rules:
 
   ### Import ###
   import/prefer-default-export: 0
+  import/first: 0
 
   ### Errors ###
   no-console: 0
@@ -71,4 +68,10 @@ rules:
   ### Async await ###
   async-await/space-after-async: error
   async-await/space-after-await: error
+
+  ### Specific for this experiment project
+  no-bitwise: 0
+  no-plusplus: 0
+  no-unused-vars: 0
+  no-continue: 0
 

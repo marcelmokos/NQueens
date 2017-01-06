@@ -2,20 +2,18 @@
  * Created by marcel on 10/07/2016.
  */
 
-import countNQueensImmutableUsingList from './immutable-solution-using-list'
-import countNQueensUsingJavascriptArray from './javascript-solution-using-array'
-// import countNQueensUsingJavascriptClassArray from './javascript-solution-using-class-array'
-import { countQeensUsingSimpleBacktrackingES6 } from './simple-backtracking'
-import countNQueensBinarySolutions from './binary-solution'
-import countNQueensBinarySolutionsUsingSymmetry from './binary-solution-using-symmetry'
+import BinarySolutions from "./binary-solution";
+import BinarySolutionsUsingSymmetry from "./binary-solution-using-symmetry";
+import ImmutableUsingList from "./immutable-solution-using-list";
+import UsingJavascriptArray from "./javascript-solution-using-array";
+import { countQeensUsingSimpleBacktrackingES6 as UsingSimpleBacktrackingES6 } from "./simple-backtracking";
 
 const algorithms = {
-  countNQueensImmutableUsingList,
-  countNQueensUsingJavascriptArray,
-  // countNQueensUsingJavascriptClassArray,
-  countQeensUsingSimpleBacktrackingES6,
-  countNQueensBinarySolutions,
-  countNQueensBinarySolutionsUsingSymmetry,
-}
+  ImmutableUsingList,
+  UsingJavascriptArray,
+  UsingSimpleBacktrackingES6,
+  BinarySolutions,
+  BinarySolutionsUsingSymmetry,
+};
 
-export default algorithms
+export default algorithms;

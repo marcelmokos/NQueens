@@ -8,7 +8,7 @@
  * source: http://gregtrowbridge.com/a-bitwise-solution-to-the-n-queens-problem-in-javascript/
  */
 
-import dec2bin from '../utility/dec2bin'
+import dec2bin from "../utility/dec2bin";
 
 /**
  * @param n
@@ -16,11 +16,11 @@ import dec2bin from '../utility/dec2bin'
  */
 const countNQueensBinarySolutions = (n) => {
   // Keeps track of the # of valid solutions
-  let count = 0
-  let iterations = 0
+  let count = 0;
+  let iterations = 0;
 
   // Helps identify valid solutions
-  const done = Math.pow(2, n) - 1
+  const done = (2 ** n) - 1;
 
   /**
    * Checks all possible board configurations
@@ -29,17 +29,18 @@ const countNQueensBinarySolutions = (n) => {
    * @param rd
    */
   const innerRecurse = (ld, col, rd) => {
-    iterations++
+    iterations++;
     // All columns are occupied,
     // so the solution must be complete
     if (col === done) {
-      count++
-      return
+      count++;
+
+      return;
     }
 
     // Gets a bit sequence with "1"s
     // whereever there is an open "slot"
-    let poss = ~(ld | rd | col)
+    let poss = ~(ld | rd | col);
 
     // console.log({count, done, ld, col, rd, poss})
     // console.log({
@@ -54,15 +55,15 @@ const countNQueensBinarySolutions = (n) => {
     // Loops as long as there is a valid
     // place to put another queen.
     while (poss & done) {
-      const bit = poss & -poss
-      poss -= bit
-      innerRecurse((ld | bit) >> 1, col | bit, (rd | bit) << 1)
+      const bit = poss & -poss;
+      poss -= bit;
+      innerRecurse((ld | bit) >> 1, col | bit, (rd | bit) << 1);
     }
-  }
+  };
 
-  innerRecurse(0, 0, 0)
+  innerRecurse(0, 0, 0);
 
-  return count
-}
+  return count;
+};
 
-export default countNQueensBinarySolutions
+export default countNQueensBinarySolutions;

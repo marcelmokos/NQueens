@@ -7,35 +7,35 @@
  * @returns {number}
  */
 export const countQeensUsingSimpleBacktrackingES6 = (n) => {
-  let count = 0
+  let count = 0;
 
   /**
    * @param current
    */
   const solver = (current) => {
     if (current.length === n) {
-      count++
+      count++;
     } else {
       for (let i = 0; i < n; i++) {
-        let j = 0
-        let l = 0
+        let j = 0;
+        let l = 0;
         for (l = current.length; j < l; j++) {
-          const prev = current[j]
-          if (prev === i) break
-          if (prev - (l - j) === i) break
-          if (prev + (l - j) === i) break
+          const prev = current[j];
+          if (prev === i) { break; }
+          if (prev - (l - j) === i) { break; }
+          if (prev + (l - j) === i) { break; }
         }
         if (j === l) {
-          solver(current.concat([i]))
+          solver(current.concat([i]));
         }
       }
     }
-  }
+  };
 
-  solver([])
+  solver([]);
 
-  return count
-}
+  return count;
+};
 
 /**
  * author: Zoli Kahan
@@ -45,25 +45,35 @@ export const countQeensUsingSimpleBacktrackingES6 = (n) => {
  * @returns {Number}
  */
 export function countQeensUsingSimpleBacktrackingES5(n) {
-  var ans = []
-  solver([])
-  return ans.length
+  const ans = [];
+  solver([]);
+
+  return ans.length;
   function solver(current) {
-    if (current.length === n)
-      ans.push(current)
-    else
-      for (var i = 0; i < n; i++) {
-        for (var j = 0, l = current.length; j < l; j++) {
-          var prev = current[j]
-          if (prev === i)
-            break
-          if (prev - (l - j) === i)
-            break
-          if (prev + (l - j) === i)
-            break
+    if (current.length === n) {
+      ans.push(current);
+    } else {
+      let i = 0;
+      let j = 0;
+      let l = 0;
+
+      for (; i < n; i++) {
+        for (l = current.length; j < l; j++) {
+          const prev = current[j];
+          if (prev === i) {
+            break;
+          }
+          if (prev - (l - j) === i) {
+            break;
+          }
+          if (prev + (l - j) === i) {
+            break;
+          }
         }
-        if (j === l)
-          solver(current.concat([i]))
+        if (j === l) {
+          solver(current.concat([i]));
+        }
       }
+    }
   }
 }

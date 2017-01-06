@@ -7,28 +7,30 @@
  * @returns {Array}
  */
 const getBoardMap = (n = 4) => {
-  const board = []
+  const board = [];
 
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
-      board.push([i, j])
+      board.push([i, j]);
     }
   }
 
-  return board
-}
+  return board;
+};
 
 /**
  * @param {number} n
  * @returns {number} - solution count
  */
 const countNQueensUsingJavascriptArray = (n) => {
-  if (n === 0 || n === 1) return 1
+  if (n === 0 || n === 1) {
+    return 1;
+  }
 
-  const x = 0
-  const y = 1
-  const board = getBoardMap(n)
-  let count = 0
+  const board = getBoardMap(n);
+  let count = 0;
+  const x = 0;
+  const y = 1;
 
   /**
    * @param {number} row
@@ -37,18 +39,18 @@ const countNQueensUsingJavascriptArray = (n) => {
    * @returns {Array} options
    */
   const getFilteredOptions = (row, options, result) => {
-    const last = result.slice(-1)[0]
-    const lastLeftDiagonalIndex = last[x] - last[y]
-    const lastRightDiagonalIndex = last[x] + last[y]
+    const last = result.slice(-1)[0];
+    const lastLeftDiagonalIndex = last[x] - last[y];
+    const lastRightDiagonalIndex = last[x] + last[y];
 
     return options
       .filter(item => (
         !(item[x] === row || // remove same row
-        item[y] === last[y] ||  // remove same column
-        (item[x] - item[y]) === lastLeftDiagonalIndex || // remove left diagonal
-        (item[x] + item[y]) === lastRightDiagonalIndex)  // remove right diagonal
-      ))
-  }
+          item[y] === last[y] ||  // remove same column
+          (item[x] - item[y]) === lastLeftDiagonalIndex || // remove left diagonal
+          (item[x] + item[y]) === lastRightDiagonalIndex)  // remove right diagonal
+      ));
+  };
 
   /**
    * @param {number} row
@@ -58,16 +60,16 @@ const countNQueensUsingJavascriptArray = (n) => {
     options
       .slice(0, n - (row + 1))
       .filter(item => (item[x] === row + 1)) // pick next row to process
-  )
+  );
 
   /**
    * @returns {boolean}
    */
   const isOddWithMiddleItem = () => {
-    const nModulo = n % 2
+    const nModulo = n % 2;
 
-    return nModulo !== 0 && (nModulo) % 1 === 0
-  }
+    return nModulo !== 0 && (nModulo) % 1 === 0;
+  };
 
   /**
    * @param {number} row
@@ -77,29 +79,30 @@ const countNQueensUsingJavascriptArray = (n) => {
    */
   const innerRecurse = (row, options, result, increment = 2) => {
     if (result.length === n) {
-      count += increment
-      return
+      count += increment;
+
+      return;
     }
 
-    const filteredOptions = getFilteredOptions(row, options, result)
-    const nexRowOptions = getNextRowOptions(row, filteredOptions)
+    const filteredOptions = getFilteredOptions(row, options, result);
+    const nexRowOptions = getNextRowOptions(row, filteredOptions);
 
     if (nexRowOptions.length === 0 || nexRowOptions.length > (n - result.length)) {
-      return
+      return;
     }
 
     nexRowOptions
-      .forEach(item => {
-        innerRecurse(row + 1, filteredOptions, result.concat([item]), increment)
-      })
-  }
+      .forEach((item) => {
+        innerRecurse(row + 1, filteredOptions, result.concat([item]), increment);
+      });
+  };
 
   /**
    * Halved number of items in first row round down
    * Equivalent of Math.floor(n / 2)
    * @type {number}
    */
-  const items = (n / 2) << 0
+  const items = (n / 2) << 0;
 
   /**
    * Given board
@@ -108,9 +111,9 @@ const countNQueensUsingJavascriptArray = (n) => {
    */
   board
     .slice(0, items)
-    .forEach(item => {
-      innerRecurse(0, board.slice(n - 1), [item], 2)
-    })
+    .forEach((item) => {
+      innerRecurse(0, board.slice(n - 1), [item], 2);
+    });
 
   /**
    * Given Odd n
@@ -120,12 +123,12 @@ const countNQueensUsingJavascriptArray = (n) => {
   if (isOddWithMiddleItem()) {
     board
       .slice(items, items + 1)
-      .forEach(item => {
-        innerRecurse(0, board.slice(n - 1), [item], 1)
-      })
+      .forEach((item) => {
+        innerRecurse(0, board.slice(n - 1), [item], 1);
+      });
   }
 
-  return count
-}
+  return count;
+};
 
-export default countNQueensUsingJavascriptArray
+export default countNQueensUsingJavascriptArray;
