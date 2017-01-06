@@ -38,7 +38,7 @@ const countNQueensUsingImmutableList = (n) => {
    * @param {number} row
    * @param {List} options
    * @param {List} result
-   * @returns {List}
+   * @returns {List} options
    */
   const getFilteredOptions = (row, options, result) => {
     const last = result.last()
@@ -60,7 +60,7 @@ const countNQueensUsingImmutableList = (n) => {
    */
   const getNextRowOptions = (row, options) => (
     options
-      .slice(0, n - row)
+      .slice(0, n - (row + 1))
       .filter(item => (item.get(x) === row + 1)) // pick next row to process
   )
 
@@ -88,7 +88,7 @@ const countNQueensUsingImmutableList = (n) => {
     const filteredOptions = getFilteredOptions(row, options, result)
     const nexRowOptions = getNextRowOptions(row, filteredOptions)
 
-    if (nexRowOptions.size === 0) {
+    if (nexRowOptions.size === 0 || nexRowOptions.size > (n - result.size)) {
       return
     }
 

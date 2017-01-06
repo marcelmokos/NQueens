@@ -10,7 +10,7 @@
 
 import algorithms from './qeens-problem'
 
-for (let i = 1; i < 13; i++) {
+for (let i = 1; i < 11; i++) {
   const counts = []
   console.log('---')
 

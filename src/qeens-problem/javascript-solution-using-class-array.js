@@ -2,21 +2,67 @@
  * Created by marcel on 10/07/2016.
  */
 
-/**
- * @param n
- * @returns {Array}
- */
-const getBoardMap = (n = 4) => {
-  const board = []
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      board.push([i, j])
-    }
+const x = 0
+const y = 1
+
+class NQeens {
+  constructor(n) {
+    this.n = n
+    this.board = this.getBoardMap(n)
+    this.row = 0
+    this.count = 0
+
+    /**
+     * Halved number of items in first row round down
+     * Equivalent of Math.floor(n / 2)
+     * @type {number}
+     */
+    this.halvedNumberOfItemsInFirstRow = (this.n / 2) << 0
+    this.isOddWithMiddleItem = this.getIsOddWithMiddleItem()
+
   }
 
-  return board
+  getCount = () => {
+    if (this.n === 0 || this.n === 1) return 1
+
+    console.log({ board: this.board })
+  }
+
+  /**
+   * @param n
+   * @returns {Array}
+   */
+  getBoardMap = (n = 4) => {
+    const board = []
+    const row = []
+
+    for (let j = 0; j < n; j++) {
+      row.push(j)
+    }
+
+    for (let i = 0; i < n; i++) {
+      board.push([i,row])
+    }
+
+    console.log(row)
+    return board
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  getIsOddWithMiddleItem = () => {
+    const nModulo = this.n % 2
+
+    return nModulo !== 0 && (nModulo) % 1 === 0
+  }
 }
+
+// export default
+
+const queens = new NQeens(4)
+console.log(queens.getCount())
 
 /**
  * @param {number} n
@@ -127,5 +173,3 @@ const countNQueensUsingJavascriptArray = (n) => {
 
   return count
 }
-
-export default countNQueensUsingJavascriptArray
