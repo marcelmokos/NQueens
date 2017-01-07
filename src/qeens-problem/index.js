@@ -4,11 +4,13 @@
 
 import BinarySolutions from "./binary-solution";
 import BinarySolutionsUsingSymmetry from "./binary-solution-using-symmetry";
+import {countNQueens as ImmutableSolution} from "./immutable-solution";
 import ImmutableUsingList from "./immutable-solution-using-list";
 import UsingJavascriptArray from "./javascript-solution-using-array";
 import {countQeensUsingSimpleBacktrackingES6 as UsingSimpleBacktrackingES6} from "./simple-backtracking";
 
 const algorithms = {
+  ImmutableSolution,
   ImmutableUsingList,
   UsingJavascriptArray,
   UsingSimpleBacktrackingES6,

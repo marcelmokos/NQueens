@@ -7,6 +7,9 @@
   "license": "ISC",
   "scripts": {
     "start": "babel-node src/index.js",
+    "seq": "eslint src/qeens-problem/seq.js --fix && babel-node src/qeens-problem/seq.js",
+    "test": "yarn run lint:fix && cross-env BABEL_ENV=commonjs jest --testPathPattern /src/",
+    "test:watch": "yarn test -- --watch",
     "lint": "eslint \"src/**\" --cache",
     "lint:fix": "yarn run lint -- --fix",
     "lint:pre-commit": "yarn run lint:fix"
@@ -22,15 +25,21 @@
     "babel-preset-es2017": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "console.table": "^0.8.0",
-    "immutable": "^3.8.1"
+    "immutable": "^3.8.1",
+    "jest": "^18.1.0",
+    "jest-cli": "^18.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "cross-env": "^3.1.4",
     "eslint": "^3.12.2",
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-async-await": "^0.0.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^1.0.2",
     "eslint-plugin-protractor": "^1.32.0",
+    "jest": "^18.1.0",
+    "jest-cli": "^18.1.0",
     "pre-commit": "^1.2.2"
   }
 }

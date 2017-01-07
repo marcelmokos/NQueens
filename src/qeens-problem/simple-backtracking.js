@@ -53,11 +53,9 @@ export function countQeensUsingSimpleBacktrackingES5(n) {
     if (current.length === n) {
       ans.push(current);
     } else {
-      let i = 0;
-      let j = 0;
-      let l = 0;
-
-      for (; i < n; i++) {
+      for (let i = 0; i < n; i++) {
+        let j = 0;
+        let l = 0;
         for (l = current.length; j < l; j++) {
           const prev = current[j];
           if (prev === i) {
