@@ -3,10 +3,13 @@
  */
 
 /**
- * @param n
- * @returns {number}
+ * author: Zoli Kahan
+ * source: https://zolmeister.com/2014/01/n-queens-problem-backtracking.html
+ *
+ * @param n {Number}
+ * @returns {Number}
  */
-export const countQeensUsingSimpleBacktrackingES6 = (n) => {
+export const countNQeensUsingSimpleBacktracking = (n) => {
   let count = 0;
 
   /**
@@ -36,42 +39,3 @@ export const countQeensUsingSimpleBacktrackingES6 = (n) => {
 
   return count;
 };
-
-/**
- * author: Zoli Kahan
- * source: https://zolmeister.com/2014/01/n-queens-problem-backtracking.html
- *
- * @param n
- * @returns {Number}
- */
-export function countQeensUsingSimpleBacktrackingES5(n) {
-  const ans = [];
-  solver([]);
-
-  return ans.length;
-  function solver(current) {
-    if (current.length === n) {
-      ans.push(current);
-    } else {
-      for (let i = 0; i < n; i++) {
-        let j = 0;
-        let l = 0;
-        for (l = current.length; j < l; j++) {
-          const prev = current[j];
-          if (prev === i) {
-            break;
-          }
-          if (prev - (l - j) === i) {
-            break;
-          }
-          if (prev + (l - j) === i) {
-            break;
-          }
-        }
-        if (j === l) {
-          solver(current.concat([i]));
-        }
-      }
-    }
-  }
-}

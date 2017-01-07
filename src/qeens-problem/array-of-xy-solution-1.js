@@ -19,8 +19,8 @@ const getBoardMap = (n = 4) => {
 };
 
 /**
- * @param {number} n
- * @returns {number} - solution count
+ * @param n {number} board size
+ * @returns {number} count of N queens solutions
  */
 const countNQueensUsingJavascriptArray = (n) => {
   if (n === 0 || n === 1) {
@@ -61,15 +61,6 @@ const countNQueensUsingJavascriptArray = (n) => {
       .slice(0, n - (row + 1))
       .filter(item => (item[x] === row + 1)) // pick next row to process
   );
-
-  /**
-   * @returns {boolean}
-   */
-  const isOddWithMiddleItem = () => {
-    const nModulo = n % 2;
-
-    return nModulo !== 0 && (nModulo) % 1 === 0;
-  };
 
   /**
    * @param {number} row
@@ -120,7 +111,7 @@ const countNQueensUsingJavascriptArray = (n) => {
    * When processing item in middle of first
    * Then increment counter only by value of one
    */
-  if (isOddWithMiddleItem()) {
+  if (items + items !== n) {
     board
       .slice(items, items + 1)
       .forEach((item) => {

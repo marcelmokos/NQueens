@@ -1,7 +1,7 @@
-import Immutable, {List, Range} from "immutable";
-import {countNQueens, getDiagonalIndexes} from "./immutable-solution";
+import {List, Map} from "immutable";
+import {immutableUsingMap1, getTakenIndexesForRow} from "./immutable-solution-using-map-1";
 
-describe("getDiagonalIndexes", () => {
+describe("getTakenIndexesForRow", () => {
   const testDiagonal = (test = {
     n: 4,
     row: 1,
@@ -20,66 +20,66 @@ describe("getDiagonalIndexes", () => {
     describe(`when n='${n}' row='${row}' and results='${results}'`, () => {
       it(`then expect to equal '${output}'`, () => {
         expect(
-          getDiagonalIndexes(n)(row)(results),
+          getTakenIndexesForRow(n)(row)(results),
         ).toEqual(output);
       });
     });
   };
 
-  // testDiagonal({
-  //   row: 0,
-  //   results: List.of(List.of(0, 1)),
-  // });
+  testDiagonal({
+    row: 0,
+    results: List.of(1),
+  });
 
   testDiagonal({
     row: 1,
-    results: List.of(List.of(0, 1)),
-    output: List.of(0, 2),
+    results: List.of(1),
+    output: List.of(0, 1, 2),
   });
 
   testDiagonal({
     row: 2,
-    results: List.of(List.of(0, 1)),
-    output: List.of(-1, 3),
+    results: List.of(1),
+    output: List.of(1, 3),
   });
 
   testDiagonal({
     row: 2,
-    results: List.of(List.of(1, 1)),
-    output: List.of(0, 2),
+    results: List.of(undefined, 1),
+    output: List.of(0, 1, 2),
   });
 
   testDiagonal({
     row: 3,
-    results: List.of(List.of(1, 1)),
-    output: List.of(-1, 3),
-  });
-
-  testDiagonal({
-    n: 5,
-    row: 2,
-    results: List.of(List.of(1, 2)),
+    results: List.of(undefined, 1),
     output: List.of(1, 3),
   });
 
   testDiagonal({
     n: 5,
+    row: 2,
+    results: List.of(undefined, 2),
+    output: List.of(1, 2, 3),
+  });
+
+  testDiagonal({
+    n: 5,
     row: 3,
-    results: List.of(List.of(1, 2)),
-    output: List.of(0, 4),
+    results: List.of(undefined, 2),
+    output: List.of(0, 2, 4),
   });
 });
 
-describe("countNQueens", () => {
+describe("immutableUsingMap1", () => {
   it("for '4' queens", () => {
-    expect(countNQueens(4)).toBe(2);
+    expect(immutableUsingMap1(4)).toBe(2);
   });
 
   it("for '5' queens", () => {
-    expect(countNQueens(5)).toBe(10);
+    expect(immutableUsingMap1(5)).toBe(10);
   });
 
   it("for '6' queens", () => {
-    expect(countNQueens(6)).toBe(4);
+    expect(immutableUsingMap1(6)).toBe(4);
   });
 });

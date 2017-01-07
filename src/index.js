@@ -31,11 +31,12 @@ for (let i = 1; i < 11; i++) {
   });
 
   const count = counts.pop();
-  counts.forEach((item) => {
-    console.assert(count === item, "not same results");
+  counts.forEach((item, index) => {
+    console.assert(count === item, `not same result of '${Object.keys(algorithms)[index + 1]}' algorithm i='${i}' - count='${count}' - item='${item}'`);
   });
   table.push([String(i), count, ...preformance]);
 }
 
 const header = ["Board", "n", ...Object.keys(algorithms)];
 console.table(header, table);
+console.log("*1 - solutions using symmetry");
