@@ -76,8 +76,8 @@ rules:
   async-await/space-after-await: error
 
   ### Specific for this experiment project
+
+  # bitwise are used in this project
   no-bitwise: 0
-  no-plusplus: 0
-  no-unused-vars: 0
-  no-continue: 0
+
 

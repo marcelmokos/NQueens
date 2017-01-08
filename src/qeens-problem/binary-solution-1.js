@@ -9,7 +9,7 @@
  * - style adjusted by Eslint
  */
 
-import dec2bin from "../utility/dec2bin";
+// import dec2bin from "../utility/dec2bin";
 
 /**
  * @param n
@@ -22,7 +22,7 @@ const countNQueensBinarySolutionsUsingSymmetry = (n) => {
 
   // Keeps track of the # of valid solutions
   let count = 0;
-  let iterations = 0;
+  // let iterations = 0;
 
   // Helps identify valid solutions
   // Equivalent to Math.pow(2,n) - 1
@@ -41,12 +41,12 @@ const countNQueensBinarySolutionsUsingSymmetry = (n) => {
   // Added two parameters: ex1 will be used on
   // the current row, ex2 is next in line
   const innerRecurse = (ld, col, rd, ex1, ex2) => {
-    iterations++;
+    // iterations += 1;
 
     // All columns are occupied,
     // so the solution must be complete
     if (col === done) {
-      count++;
+      count += 1;
 
       return;
     }

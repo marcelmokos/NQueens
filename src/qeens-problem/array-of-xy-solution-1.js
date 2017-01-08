@@ -9,8 +9,8 @@
 const getBoardMap = (n = 4) => {
   const board = [];
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
       board.push([i, j]);
     }
   }

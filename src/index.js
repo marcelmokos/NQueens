@@ -17,7 +17,7 @@ const getElapsedTimeInMs = start => getMsFromHrtime(process.hrtime(start));
 
 const table = [];
 
-for (let i = 1; i < 11; i++) {
+for (let i = 1; i < 11; i += 1) {
   const counts = [];
   const preformance = [];
 

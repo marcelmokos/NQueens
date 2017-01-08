@@ -2,8 +2,9 @@
  * Created by Marcel Mokos on 07/01/2017.
  */
 
-import {List, Map} from "immutable";
-import {immutableUsingMap1, getTakenIndexesForRow} from "./immutable-solution-using-map-1";
+import {getTakenIndexesForRow, immutableUsingMap1} from "./immutable-solution-using-map-1";
+
+import {List} from "immutable";
 
 describe("getTakenIndexesForRow", () => {
   const testDiagonal = (test = {

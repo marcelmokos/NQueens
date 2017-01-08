@@ -21,12 +21,12 @@ export const countNQeensUsingSimpleBacktracking = (n) => {
    */
   const solver = (current) => {
     if (current.length === n) {
-      count++;
+      count += 1;
     } else {
-      for (let i = 0; i < n; i++) {
+      for (let i = 0; i < n; i += 1) {
         let j = 0;
         let l = 0;
-        for (l = current.length; j < l; j++) {
+        for (l = current.length; j < l; j += 1) {
           const prev = current[j];
           if (prev === i) { break; }
           if (prev - (l - j) === i) { break; }

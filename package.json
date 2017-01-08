@@ -7,7 +7,6 @@
   "license": "ISC",
   "scripts": {
     "start": "babel-node src/index.js",
-    "seq": "eslint src/qeens-problem/seq.js --fix && babel-node src/qeens-problem/seq.js",
     "test": "yarn run lint:fix && cross-env BABEL_ENV=commonjs jest --testPathPattern /src/",
     "test:watch": "yarn test -- --watch",
     "lint": "eslint \"src/**\" --cache",

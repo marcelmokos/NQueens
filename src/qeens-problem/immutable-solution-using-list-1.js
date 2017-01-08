@@ -11,8 +11,8 @@ import Immutable from "immutable";
 const getBoardMap = (n = 4) => {
   let board = Immutable.List();
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
+  for (let i = 0; i < n; i += 1) {
+    for (let j = 0; j < n; j += 1) {
       board = board.push(Immutable.List.of(i, j));
     }
   }

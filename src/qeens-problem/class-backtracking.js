@@ -11,7 +11,7 @@
  */
 const OCCUPIED = 1; // field is in use
 const FREE = 0; // field is not in use
-const OUTPUT = 1; // when 1 show solutions
+// const OUTPUT = 1; // when 1 show solutions
 
 function Queen(width) {
   this.width = width;
@@ -26,7 +26,7 @@ function Queen(width) {
 
   this.iterations = 0;
 
-  for (let index = 0; index < numberOfDiagonals; ++index) {
+  for (let index = 0; index < numberOfDiagonals; index += 1) {
     if (index < this.width) {
       this.columns[index] = -1;
     }
@@ -41,23 +41,23 @@ function Queen(width) {
 
   // searches for all possible solutions
   this.calculate = (row) => {
-    this.iterations = this.iterations++;
-    for (let column = 0; column < this.width; ++column) {
+    this.iterations = this.iterations += 1;
+    for (let column = 0; column < this.width; column += 1) {
       // current column blocked?
       if (this.columns[column] >= 0) {
-        continue;
+        break;
       }
 
       // relating diagonale '\' depending on current row and column
       const ixDiag1 = row + column;
       if (this.diagonals1[ixDiag1] === OCCUPIED) {
-        continue;
+        break;
       }
 
       // relating diagonale '/' depending on current row and column
       const ixDiag2 = this.width - 1 - (row + column);
       if (this.diagonals2[ixDiag2] === OCCUPIED) {
-        continue;
+        break;
       }
 
       // occupying column and diagonals depending on current row and column

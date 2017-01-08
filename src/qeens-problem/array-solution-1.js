@@ -20,10 +20,10 @@ export const countNQueens = (n) => {
     if (current.length === n) {
       count += increment;
     } else {
-      for (let col = 0; col < n; col++) {
+      for (let col = 0; col < n; col += 1) {
         let row = 0;
         let l = 0;
-        for (l = current.length; row < l; row++) {
+        for (l = current.length; row < l; row += 1) {
           const prev = current[row];
           if (prev === col) { break; }
           if (prev - (l - row) === col) { break; }
@@ -38,7 +38,7 @@ export const countNQueens = (n) => {
 
   const items = (n / 2) << 0;
 
-  for (let i = 0; i < items; i++) {
+  for (let i = 0; i < items; i += 1) {
     solver([i], 2);
   }
 
