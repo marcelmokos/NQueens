@@ -1,11 +1,12 @@
 /**
- * Created by marcel on 10/07/2016.
- *
- * Updated to ES6
- * Esling fix used
+ * Created by Marcel Mokos on 10/07/2016.
  *
  * author: Joyce Liu
  * source: https://liujoycec.github.io/2015/09/20/n_queens_symmetry/
+ *
+ * changed by Marcel Mokos
+ * - rewritten in es6
+ * - style adjusted by Eslint
  */
 
 import dec2bin from "../utility/dec2bin";

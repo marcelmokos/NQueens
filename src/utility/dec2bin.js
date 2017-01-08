@@ -1,5 +1,5 @@
 /**
- * Created by marcel on 10/07/2016.
+ * Created by Marcel Mokos on 10/07/2016.
  */
 
 export default function dec2bin(dec) {

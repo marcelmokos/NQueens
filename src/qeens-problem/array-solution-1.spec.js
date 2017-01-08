@@ -1,3 +1,7 @@
+/**
+ * Created by Marcel Mokos on 07/01/2017.
+ */
+
 import {countNQueens} from "./array-solution-1";
 
 describe("immutableUsingMap1", () => {

@@ -1,3 +1,7 @@
+/**
+ * Created by Marcel Mokos on 07/01/2017.
+ */
+
 import {List, Range} from "immutable";
 
 export const getTakenIndexesForRow = n => row => results => results.flatMap((y, x) => {

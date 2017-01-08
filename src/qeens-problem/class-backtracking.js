@@ -1,12 +1,13 @@
 /**
- * Created by marcel on 10/07/2016.
- *
- * Updated to ES6
- * Esling fix used
- * Updated to return solutions count
+ * Created by Marcel Mokos on 10/07/2016.
  *
  * author: Thomas Lehmann
  * source: https://code.activestate.com/recipes/578497-eight-queen-problem-javascript/
+ *
+ * changed by Marcel Mokos
+ * - rewritten in es6
+ * - style adjusted by Eslint
+ * - updated to return solutions count
  */
 const OCCUPIED = 1; // field is in use
 const FREE = 0; // field is not in use

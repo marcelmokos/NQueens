@@ -1,10 +1,14 @@
 /**
- * Created by marcel on 10/07/2016.
+ * Created by Marcel Mokos on 10/07/2016.
  */
 
 /**
  * author: Zoli Kahan
  * source: https://zolmeister.com/2014/01/n-queens-problem-backtracking.html
+ *
+ * changed by Marcel Mokos
+ * - rewritten in es6
+ * - style adjusted by Eslint
  *
  * @param n {Number}
  * @returns {Number}

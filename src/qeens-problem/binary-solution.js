@@ -1,11 +1,12 @@
 /**
- * Created by marcel on 10/07/2016.
- *
- * Updated to ES6
- * Esling fix used
+ * Created by Marcel Mokos Mokos on 10/07/2016.
  *
  * author: Greg Trowbridge
  * source: http://gregtrowbridge.com/a-bitwise-solution-to-the-n-queens-problem-in-javascript/
+ *
+ * changed by Marcel Mokos
+ * - rewritten in es6
+ * - style adjusted by Eslint
  */
 
 import dec2bin from "../utility/dec2bin";
