@@ -1,4 +1,4 @@
-# N-Queens Counting Algorithms:
+# N-Queens problem Counting Algorithms:
 [wikipedia](https://en.wikipedia.org/wiki/Eight_queens_puzzle) 
 date: 10.07.2016
 

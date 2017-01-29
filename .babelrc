@@ -1,8 +1,7 @@
 {
   "presets": [
-    "es2015",
-    "es2017",
-    "stage-0"
+    "latest",
+    "stage-2"
   ],
   "sourceMaps": true,
   "retainLines": true
