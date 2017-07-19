@@ -27,7 +27,9 @@ const getBoardMap = (n = 4) => {
 const countNQueensUsingImmutableList = (n) => {
   // Symmetry will not work for N=1 and N=0 because
   // the one solution's mirror image is itself
-  if (n === 0 || n === 1) { return 1; }
+  if (n === 0 || n === 1) {
+    return 1;
+  }
 
   const x = 0;
   const y = 1;
@@ -45,24 +47,21 @@ const countNQueensUsingImmutableList = (n) => {
     const lastLeftDiagonalIndex = last.get(x) - last.get(y);
     const lastRightDiagonalIndex = last.get(x) + last.get(y);
 
-    return options
-      .filterNot(item => (
+    return options.filterNot(
+      item =>
         item.get(x) === row || // remove same row
-        item.get(y) === last.get(y) ||  // remove same column
-        (item.get(x) - item.get(y)) === lastLeftDiagonalIndex || // remove left diagonal
-        (item.get(x) + item.get(y)) === lastRightDiagonalIndex   // remove right diagonal
-      ));
+        item.get(y) === last.get(y) || // remove same column
+        item.get(x) - item.get(y) === lastLeftDiagonalIndex || // remove left diagonal
+        item.get(x) + item.get(y) === lastRightDiagonalIndex, // remove right diagonal
+    );
   };
 
   /**
    * @param {number} row
    * @param {List} options
    */
-  const getNextRowOptions = (row, options) => (
-    options
-      .slice(0, n - (row + 1))
-      .filter(item => (item.get(x) === row + 1)) // pick next row to process
-  );
+  const getNextRowOptions = (row, options) =>
+    options.slice(0, n - (row + 1)).filter(item => item.get(x) === row + 1); // pick next row to process
 
   /**
    * @param {number} row
@@ -80,14 +79,13 @@ const countNQueensUsingImmutableList = (n) => {
     const filteredOptions = getFilteredOptions(row, options, result);
     const nexRowOptions = getNextRowOptions(row, filteredOptions);
 
-    if (nexRowOptions.size === 0 || nexRowOptions.size > (n - result.size)) {
+    if (nexRowOptions.size === 0 || nexRowOptions.size > n - result.size) {
       return;
     }
 
-    nexRowOptions
-      .forEach((item) => {
-        innerRecurse(row + 1, filteredOptions, result.push(item), increment);
-      });
+    nexRowOptions.forEach((item) => {
+      innerRecurse(row + 1, filteredOptions, result.push(item), increment);
+    });
   };
 
   /**
@@ -102,11 +100,9 @@ const countNQueensUsingImmutableList = (n) => {
    * When take half items of the first row
    * Then process with symetry in mind and increment by value of two
    */
-  board
-    .take(items)
-    .forEach((item) => {
-      innerRecurse(0, board.slice(n - 1), Immutable.List.of(item), 2);
-    });
+  board.take(items).forEach((item) => {
+    innerRecurse(0, board.slice(n - 1), Immutable.List.of(item), 2);
+  });
 
   /**
    * Given Odd n
@@ -114,15 +110,12 @@ const countNQueensUsingImmutableList = (n) => {
    * Then increment counter only by value of one
    */
   if (items + items !== n) {
-    board
-      .slice(items, items + 1)
-      .forEach((item) => {
-        innerRecurse(0, board.slice(n - 1), Immutable.List.of(item), 1);
-      });
+    board.slice(items, items + 1).forEach((item) => {
+      innerRecurse(0, board.slice(n - 1), Immutable.List.of(item), 1);
+    });
   }
 
   return count;
 };
 
 export default countNQueensUsingImmutableList;
-

@@ -1,41 +1,49 @@
 {
   "name": "NQueens",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "N-Queens Counting Algorithms in Javascript",
   "main": "index.js",
-  "author": "Marcel",
+  "author": "Marcel Mokoš (https://github.com/marcelmokos)",
   "license": "ISC",
   "scripts": {
     "start": "babel-node src/index.js",
     "test": "yarn run lint:fix && cross-env BABEL_ENV=commonjs jest --testPathPattern /src/",
     "test:watch": "yarn test -- --watch",
+    "prettier": "prettier --trailing-comma es5 --bracket-spacing=false --write '{src,spec,__{tests,mocks}__}/**/*.js'",
     "lint": "eslint \"src/**\" --cache",
-    "lint:fix": "yarn run lint -- --fix",
-    "lint:pre-commit": "yarn run lint:fix"
+    "lint:fix": "yarn run prettier && yarn run lint -- --fix",
+    "lint:staged": "yarn lint:fix -- --rule 'no-console:2' --rule 'no-debugger:2'",
+    "precommit": "lint-staged"
   },
-  "pre-commit": [
-    "lint:pre-commit"
-  ],
+  "lint-staged": {
+    "*.js": [
+      "lint:staged",
+      "git add"
+    ]
+  },
   "dependencies": {
-    "babel": "^6.5.2",
-    "babel-cli": "^6.22.2",
-    "babel-core": "^6.22.1",
-    "babel-preset-latest": "^6.22.0",
-    "babel-preset-stage-2": "^6.22.0",
-    "console.table": "^0.8.0",
+    "cli-table": "^0.3.1",
     "immutable": "^3.8.1"
   },
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
-    "cross-env": "^3.1.4",
-    "eslint": "^3.12.2",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.22.0",
+    "cross-env": "^5.0.1",
+    "eslint": "^4.2.0",
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-async-await": "^0.0.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jest": "^1.0.2",
+    "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-protractor": "^1.32.0",
-    "jest": "^18.1.0",
-    "jest-cli": "^18.1.0",
-    "pre-commit": "^1.2.2"
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
+    "lint-staged": "^4.0.2",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.5.3"
   }
 }

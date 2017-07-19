@@ -2,17 +2,22 @@
  * Created by Marcel Mokos on 07/01/2017.
  */
 
-import {getTakenIndexesForRow, immutableUsingMap1} from "./immutable-solution-using-map-1";
+import {
+  getTakenIndexesForRow,
+  immutableUsingMap1,
+} from "./immutable-solution-using-map-1";
 
 import {List} from "immutable";
 
 describe("getTakenIndexesForRow", () => {
-  const testDiagonal = (test = {
-    n: 4,
-    row: 1,
-    results: List.of(),
-    output: List.of(),
-  }) => {
+  const testDiagonal = (
+    test = {
+      n: 4,
+      row: 1,
+      results: List.of(),
+      output: List.of(),
+    },
+  ) => {
     const {n, row, results, output} = {
       ...{
         n: 4,
@@ -24,9 +29,7 @@ describe("getTakenIndexesForRow", () => {
     };
     describe(`when n='${n}' row='${row}' and results='${results}'`, () => {
       it(`then expect to equal '${output}'`, () => {
-        expect(
-          getTakenIndexesForRow(n)(row)(results),
-        ).toEqual(output);
+        expect(getTakenIndexesForRow(n)(row)(results)).toEqual(output);
       });
     });
   };

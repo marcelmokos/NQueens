@@ -28,9 +28,15 @@ export const countNQeensUsingSimpleBacktracking = (n) => {
         let l = 0;
         for (l = current.length; j < l; j += 1) {
           const prev = current[j];
-          if (prev === i) { break; }
-          if (prev - (l - j) === i) { break; }
-          if (prev + (l - j) === i) { break; }
+          if (prev === i) {
+            break;
+          }
+          if (prev - (l - j) === i) {
+            break;
+          }
+          if (prev + (l - j) === i) {
+            break;
+          }
         }
         if (j === l) {
           solver(current.concat([i]));

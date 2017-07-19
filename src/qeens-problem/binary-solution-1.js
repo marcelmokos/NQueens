@@ -18,7 +18,9 @@
 const countNQueensBinarySolutionsUsingSymmetry = (n) => {
   // Symmetry will not work for N=1 and N=0 because
   // the one solution's mirror image is itself
-  if (n === 0 || n === 1) { return 1; }
+  if (n === 0 || n === 1) {
+    return 1;
+  }
 
   // Keeps track of the # of valid solutions
   let count = 0;
@@ -91,4 +93,3 @@ const countNQueensBinarySolutionsUsingSymmetry = (n) => {
 };
 
 export default countNQueensBinarySolutionsUsingSymmetry;
-

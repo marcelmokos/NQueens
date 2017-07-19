@@ -43,24 +43,23 @@ const countNQueensUsingJavascriptArray = (n) => {
     const lastLeftDiagonalIndex = last[x] - last[y];
     const lastRightDiagonalIndex = last[x] + last[y];
 
-    return options
-      .filter(item => (
-        !(item[x] === row || // remove same row
-          item[y] === last[y] ||  // remove same column
-          (item[x] - item[y]) === lastLeftDiagonalIndex || // remove left diagonal
-          (item[x] + item[y]) === lastRightDiagonalIndex)  // remove right diagonal
-      ));
+    return options.filter(
+      item =>
+        !(
+          item[x] === row || // remove same row
+          item[y] === last[y] || // remove same column
+          item[x] - item[y] === lastLeftDiagonalIndex || // remove left diagonal
+          item[x] + item[y] === lastRightDiagonalIndex
+        ), // remove right diagonal
+    );
   };
 
   /**
    * @param {number} row
    * @param {Array} options
    */
-  const getNextRowOptions = (row, options) => (
-    options
-      .slice(0, n - (row + 1))
-      .filter(item => (item[x] === row + 1)) // pick next row to process
-  );
+  const getNextRowOptions = (row, options) =>
+    options.slice(0, n - (row + 1)).filter(item => item[x] === row + 1); // pick next row to process
 
   /**
    * @param {number} row
@@ -78,14 +77,16 @@ const countNQueensUsingJavascriptArray = (n) => {
     const filteredOptions = getFilteredOptions(row, options, result);
     const nexRowOptions = getNextRowOptions(row, filteredOptions);
 
-    if (nexRowOptions.length === 0 || nexRowOptions.length > (n - result.length)) {
+    if (
+      nexRowOptions.length === 0 ||
+      nexRowOptions.length > n - result.length
+    ) {
       return;
     }
 
-    nexRowOptions
-      .forEach((item) => {
-        innerRecurse(row + 1, filteredOptions, result.concat([item]), increment);
-      });
+    nexRowOptions.forEach((item) => {
+      innerRecurse(row + 1, filteredOptions, result.concat([item]), increment);
+    });
   };
 
   /**
@@ -100,11 +101,9 @@ const countNQueensUsingJavascriptArray = (n) => {
    * When take half items of the first row
    * Then process with symetry in mind and increment by value of two
    */
-  board
-    .slice(0, items)
-    .forEach((item) => {
-      innerRecurse(0, board.slice(n - 1), [item], 2);
-    });
+  board.slice(0, items).forEach((item) => {
+    innerRecurse(0, board.slice(n - 1), [item], 2);
+  });
 
   /**
    * Given Odd n
@@ -112,11 +111,9 @@ const countNQueensUsingJavascriptArray = (n) => {
    * Then increment counter only by value of one
    */
   if (items + items !== n) {
-    board
-      .slice(items, items + 1)
-      .forEach((item) => {
-        innerRecurse(0, board.slice(n - 1), [item], 1);
-      });
+    board.slice(items, items + 1).forEach((item) => {
+      innerRecurse(0, board.slice(n - 1), [item], 1);
+    });
   }
 
   return count;

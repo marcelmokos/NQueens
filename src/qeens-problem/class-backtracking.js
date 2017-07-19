@@ -19,7 +19,7 @@ function Queen(width) {
   this.columns = new Array(this.width);
   this.rcolumns = new Array(this.width);
 
-  const numberOfDiagonals = (2 * this.width) - 1;
+  const numberOfDiagonals = 2 * this.width - 1;
   this.diagonals1 = new Array(numberOfDiagonals);
   this.diagonals2 = new Array(numberOfDiagonals);
   this.solutions = [];

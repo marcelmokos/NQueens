@@ -25,9 +25,15 @@ export const countNQueens = (n) => {
         let l = 0;
         for (l = current.length; row < l; row += 1) {
           const prev = current[row];
-          if (prev === col) { break; }
-          if (prev - (l - row) === col) { break; }
-          if (prev + (l - row) === col) { break; }
+          if (prev === col) {
+            break;
+          }
+          if (prev - (l - row) === col) {
+            break;
+          }
+          if (prev + (l - row) === col) {
+            break;
+          }
         }
         if (row === l) {
           solver(current.concat([col]), increment);

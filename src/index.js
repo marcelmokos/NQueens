@@ -10,9 +10,10 @@
 
 import algorithms from "./qeens-problem";
 
-require("console.table");
+import Table from 'cli-table';
 
-const getMsFromHrtime = hrtime => `${(((hrtime[0] * 1e9) + hrtime[1]) / 1e6).toFixed(3)}ms`;
+const getMsFromHrtime = hrtime =>
+  `${((hrtime[0] * 1e9 + hrtime[1]) / 1e6).toFixed(3)}ms`;
 const getElapsedTimeInMs = start => getMsFromHrtime(process.hrtime(start));
 
 const runNQueenAlgorithms = (n = 10) => {
@@ -34,13 +35,22 @@ const runNQueenAlgorithms = (n = 10) => {
 
     const count = counts.pop();
     counts.forEach((item, index) => {
-      console.assert(count === item, `not same result of '${Object.keys(algorithms)[index + 1]}' algorithm i='${i}' - count='${count}' - item='${item}'`);
+      console.assert(
+        count === item,
+        `not same result of '${Object.keys(algorithms)[
+          index + 1
+        ]}' algorithm i='${i}' - count='${count}' - item='${item}'`,
+      );
     });
     table.push([String(i), count, ...preformance]);
   }
 
   const header = ["Board", "n", ...Object.keys(algorithms)];
-  console.table(header, table);
+
+  const theTable = new Table({head: header});
+  table.forEach(cell => theTable.push(cell));
+  console.log(theTable.toString());
+
   console.log("*1 - solutions using symmetry");
 };
 

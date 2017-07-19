@@ -21,7 +21,7 @@ const countNQueensBinarySolutions = (n) => {
   // let iterations = 0;
 
   // Helps identify valid solutions
-  const done = (2 ** n) - 1;
+  const done = 2 ** n - 1;
 
   /**
    * Checks all possible board configurations
