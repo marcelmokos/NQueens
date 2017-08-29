@@ -10,7 +10,7 @@
 
 import algorithms from "./qeens-problem";
 
-import Table from 'cli-table';
+import Table from "cli-table";
 
 const getMsFromHrtime = hrtime =>
   `${((hrtime[0] * 1e9 + hrtime[1]) / 1e6).toFixed(3)}ms`;
