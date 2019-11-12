@@ -4,14 +4,13 @@
 
 import {List, Range} from "immutable";
 
-export const getTakenIndexesForRow = n => row => results =>
-  results.flatMap((y, x) => {
-    if (x === row || y === undefined) {
-      return [];
-    }
+export const getTakenIndexesForRow = (n) => (row) => (results) => results.flatMap((y, x) => {
+  if (x === row || y === undefined) {
+    return [];
+  }
 
-    return [y - (row - x), y, y + (row - x)].filter(i => i >= 0 && i < n);
-  });
+  return [y - (row - x), y, y + (row - x)].filter((i) => i >= 0 && i < n);
+});
 
 /**
  * @param n {number} board size

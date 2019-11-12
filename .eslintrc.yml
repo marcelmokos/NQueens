@@ -30,15 +30,7 @@ rules:
   ### Styling ###
 
   # better to ignore comments and others
-  max-len:
-    - error
-    -
-      code: 80
-      ignoreComments: true
-      ignoreTrailingComments: true
-      ignoreStrings: true
-      ignoreTemplateLiterals: true
-      ignoreRegExpLiterals: true
+  max-len: off
 
   # I prefer new line before error
   # http://eslint.org/docs/rules/newline-before-return
@@ -91,5 +83,3 @@ rules:
   # bitwise are used in this project
   no-bitwise: 0
   no-mixed-operators: 0
-
-

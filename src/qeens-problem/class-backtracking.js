@@ -41,6 +41,7 @@ function Queen(width) {
 
   // searches for all possible solutions
   this.calculate = (row) => {
+    // eslint-disable-next-line no-multi-assign
     this.iterations = this.iterations += 1;
     for (let column = 0; column < this.width; column += 1) {
       // current column blocked?

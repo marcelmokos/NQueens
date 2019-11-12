@@ -1,8 +1,3 @@
 {
-  "presets": [
-    "latest",
-    "stage-2"
-  ],
-  "sourceMaps": true,
-  "retainLines": true
+  "presets": ["@babel/preset-env"]
 }
