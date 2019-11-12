@@ -44,13 +44,12 @@ const countNQueensUsingJavascriptArray = (n) => {
     const lastRightDiagonalIndex = last[x] + last[y];
 
     return options.filter(
-      item =>
-        !(
-          item[x] === row || // remove same row
-          item[y] === last[y] || // remove same column
-          item[x] - item[y] === lastLeftDiagonalIndex || // remove left diagonal
-          item[x] + item[y] === lastRightDiagonalIndex
-        ), // remove right diagonal
+      (item) => !(
+        item[x] === row // remove same row
+          || item[y] === last[y] // remove same column
+          || item[x] - item[y] === lastLeftDiagonalIndex // remove left diagonal
+          || item[x] + item[y] === lastRightDiagonalIndex
+      ), // remove right diagonal
     );
   };
 
@@ -58,8 +57,7 @@ const countNQueensUsingJavascriptArray = (n) => {
    * @param {number} row
    * @param {Array} options
    */
-  const getNextRowOptions = (row, options) =>
-    options.slice(0, n - (row + 1)).filter(item => item[x] === row + 1); // pick next row to process
+  const getNextRowOptions = (row, options) => options.slice(0, n - (row + 1)).filter((item) => item[x] === row + 1); // pick next row to process
 
   /**
    * @param {number} row
@@ -78,8 +76,8 @@ const countNQueensUsingJavascriptArray = (n) => {
     const nexRowOptions = getNextRowOptions(row, filteredOptions);
 
     if (
-      nexRowOptions.length === 0 ||
-      nexRowOptions.length > n - result.length
+      nexRowOptions.length === 0
+      || nexRowOptions.length > n - result.length
     ) {
       return;
     }

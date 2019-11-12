@@ -8,13 +8,11 @@
  * Then how many combinations can queens be placed and not attacking each other
  */
 
+import Table from "cli-table";
 import algorithms from "./qeens-problem";
 
-import Table from "cli-table";
-
-const getMsFromHrtime = hrtime =>
-  `${((hrtime[0] * 1e9 + hrtime[1]) / 1e6).toFixed(3)}ms`;
-const getElapsedTimeInMs = start => getMsFromHrtime(process.hrtime(start));
+const getMsFromHrtime = (hrtime) => `${((hrtime[0] * 1e9 + hrtime[1]) / 1e6).toFixed(3)}ms`;
+const getElapsedTimeInMs = (start) => getMsFromHrtime(process.hrtime(start));
 
 const runNQueenAlgorithms = (n = 10) => {
   console.log(`running NQueens for n='${n}'`);
@@ -37,9 +35,9 @@ const runNQueenAlgorithms = (n = 10) => {
     counts.forEach((item, index) => {
       console.assert(
         count === item,
-        `not same result of '${Object.keys(algorithms)[
-          index + 1
-        ]}' algorithm i='${i}' - count='${count}' - item='${item}'`,
+        `not same result of '${
+          Object.keys(algorithms)[index + 1]
+        }' algorithm i='${i}' - count='${count}' - item='${item}'`,
       );
     });
     table.push([String(i), count, ...preformance]);
@@ -48,7 +46,7 @@ const runNQueenAlgorithms = (n = 10) => {
   const header = ["Board", "n", ...Object.keys(algorithms)];
 
   const theTable = new Table({head: header});
-  table.forEach(cell => theTable.push(cell));
+  table.forEach((cell) => theTable.push(cell));
   console.log(theTable.toString());
 
   console.log("*1 - solutions using symmetry");

@@ -48,11 +48,10 @@ const countNQueensUsingImmutableList = (n) => {
     const lastRightDiagonalIndex = last.get(x) + last.get(y);
 
     return options.filterNot(
-      item =>
-        item.get(x) === row || // remove same row
-        item.get(y) === last.get(y) || // remove same column
-        item.get(x) - item.get(y) === lastLeftDiagonalIndex || // remove left diagonal
-        item.get(x) + item.get(y) === lastRightDiagonalIndex, // remove right diagonal
+      (item) => item.get(x) === row // remove same row
+        || item.get(y) === last.get(y) // remove same column
+        || item.get(x) - item.get(y) === lastLeftDiagonalIndex // remove left diagonal
+        || item.get(x) + item.get(y) === lastRightDiagonalIndex, // remove right diagonal
     );
   };
 
@@ -60,8 +59,7 @@ const countNQueensUsingImmutableList = (n) => {
    * @param {number} row
    * @param {List} options
    */
-  const getNextRowOptions = (row, options) =>
-    options.slice(0, n - (row + 1)).filter(item => item.get(x) === row + 1); // pick next row to process
+  const getNextRowOptions = (row, options) => options.slice(0, n - (row + 1)).filter((item) => item.get(x) === row + 1); // pick next row to process
 
   /**
    * @param {number} row
